@@ -14,7 +14,7 @@
 #### Run with built-in web server. 
 
 ```sh
-$ php -S l:8080 index.php
+$ php -S localhost:8080 index.php
 ```
 
 #### Or run with apache/nginx server.
@@ -41,25 +41,33 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php
 ```
 
+
 ## Examples
 
+> http://localhost:8080/[size][/bgcolor][/color][.extname][?text=test]
+
+* size - 200 or 200x100 to set the width and height.
+* bgcolor - The CSS background-color property.
+* color - The CSS color property.
+* text - The text information.
+* extname - The Picture type, support png, jpg, gif.
+
 ```html
-<img src="/50">
-<img src="/50x80">
+<img src="http://localhost:8080/50">
+<img src="http://localhost:8080/50x80">
 
-<img src="/50x80/eee">
-<img src="/50x80/eee/999">
+<img src="http://localhost:8080/50x80/eee">
+<img src="http://localhost:8080/50x80/eee/999">
 
-<img src="/200.jpg">
-<img src="/10x20.png">
-<img src="/10x20/eee.gif">
-<img src="/10x20/eee/aaa.png">
+<img src="http://localhost:8080/200.jpg">
+<img src="http://localhost:8080/10x20.png">
+<img src="http://localhost:8080/10x20/eee.gif">
+<img src="http://localhost:8080/10x20/eee/aaa.png">
 
-<img src="/200?text=hello world">
-<img src="/10x20/eee/aaa?text=hello world">
-<img src="/10x20/eee/aaa.png?text=hello world">
+<img src="http://localhost:8080/200?text=hello world">
+<img src="http://localhost:8080/10x20/eee/aaa?text=hello world">
+<img src="http://localhost:8080/10x20/eee/aaa.png?text=hello world">
 ```
-
 
 ## License
 
