@@ -1,8 +1,5 @@
 <?php
 $host = 'http://' . $_SERVER['HTTP_HOST'];
-if ($_SERVER['SERVER_PORT'] != 80) {
-  $host .= ':' . $_SERVER['SERVER_PORT'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +13,7 @@ if ($_SERVER['SERVER_PORT'] != 80) {
   h2{font-size:1.7em;line-height:2}
   article{overflow:hidden;margin:auto;margin-bottom:20px;width:980px}
   footer{padding:40px 0 20px 0;background-color:#111;color:#666;text-align:center;font-size:12px}
-  .info{float:left;width:470px;height:415px;overflow:auto}
+  .info{float:left;width:470px}
   .case{float:right;width:490px;font-size:0}
   .demo{margin:1em 0;padding:1.3em 1em;border:1px dotted #aaa;line-height:1.2}
   a{color:#428bca;text-decoration:none}
@@ -80,6 +77,7 @@ if ($_SERVER['SERVER_PORT'] != 80) {
     <a href="/300x200/369/fff.png?text=你好世界" target="_blank">/300x200/369/fff.png?text=你好世界</a>
     </pre>
   </div>
+
   <div class="case">
     <img src="/490x160">
     <img src="/280x120/360/fff" style="margin:10px 0">
@@ -89,7 +87,7 @@ if ($_SERVER['SERVER_PORT'] != 80) {
 </article>
 
 <footer>
-  php-placehold@0.1.0 MIT
+  php-placehold@0.1.1 MIT
 </footer>
 </body>
 </html>
