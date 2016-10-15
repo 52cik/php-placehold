@@ -45,7 +45,7 @@ function draw($format) {
   extract($format);
 
   $mime_type = [
-    'png' => 'image/jpeg',
+    'png' => 'image/png',
     'jpg' => 'image/jpeg',
     'gif' => 'image/gif',
   ];
@@ -84,7 +84,7 @@ function draw($format) {
   imagettftext($image, $fontsize, 0, ($width / 2) - (($textBox[2] - $textBox[0]) / 2), ($height / 2) + (($textBox[1] - $textBox[7]) / 2), $color, $font, $text);
 
   // Set cache
-  header('Content-type:' . $mime_type[$type]);
+  header('Content-type: ' . $mime_type[$type]);
   header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + 604800));
   header('Cache-Control: public');
 
