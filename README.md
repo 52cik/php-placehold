@@ -44,13 +44,13 @@ RewriteRule . index.php
 
 ## Examples
 
-> http://localhost:8080/[size][/bgcolor][/color][.extname][?text=test]
+> http://localhost:8080/[size][/bgcolor][/color][.extname][?text=text]
 
 * size - 200 or 200x100 to set the width and height.
 * bgcolor - The CSS background-color property.
 * color - The CSS color property.
-* text - The text information.
 * extname - The Picture type, support png, jpg, gif.
+* text - The text information.
 
 ```html
 <img src="http://localhost:8080/50">
