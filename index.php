@@ -6,11 +6,20 @@
  */
 
 $uri = $_SERVER['REQUEST_URI'];
+$etag = md5($uri);
 
+// 304 Not Modified
+if (isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] == $etag) {
+  header('HTTP/1.1 304 Not Modified');
+  exit;
+}
+
+// show document
 if ($uri === '/') {
   index();
 }
 
+// Resolution url encoding
 $params = explode('?', $uri);
 $params = $params[0];
 
@@ -83,10 +92,11 @@ function draw($format) {
   // Generate text
   imagettftext($image, $fontsize, 0, ($width / 2) - (($textBox[2] - $textBox[0]) / 2), ($height / 2) + (($textBox[1] - $textBox[7]) / 2), $color, $font, $text);
 
-  // Set cache
+  // Set type
   header('Content-type: ' . $mime_type[$type]);
-  header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + 604800));
-  header('Cache-Control: public');
+
+  // Set cache
+  setCache();
 
   // Render image
   $drawimage = $image_type[$type];
@@ -100,11 +110,16 @@ function draw($format) {
   exit;
 }
 
+// document
 function index() {
+  // Set cache
+  setCache();
+
   include 'doc.php';
   exit;
 }
 
+// error page
 function err() {
   header('HTTP/1.1 404 Not Found');
   header('Status: 404 Not Found');
@@ -121,4 +136,12 @@ function hex2rgb($hex) {
 
 function getval($arr, $idx, $def_val) {
   return isset($arr[$idx]) && $arr[$idx] ? $arr[$idx] : $def_val;
+}
+
+// Set cache
+function setCache() {
+  global $etag;
+  header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + 2592000));
+  header('Cache-Control: max-age=2592000');
+  header('Etag: ' . $etag);
 }
