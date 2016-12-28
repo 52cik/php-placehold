@@ -1,11 +1,9 @@
-<?php
-$host = 'http://' . $_SERVER['HTTP_HOST'];
-?>
+<?php $host = 'http://' . $_SERVER['HTTP_HOST']; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>placehold</title>
+  <title>php placeholder service</title>
   <style>
   *{margin:0;padding:0}
   header{margin-bottom:20px;padding:62px;background-color:#f4645f;color:#fff;text-align:center}
@@ -87,7 +85,7 @@ $host = 'http://' . $_SERVER['HTTP_HOST'];
 </article>
 
 <footer>
-  php-placehold@0.1.1 MIT
+  php-placehold@0.2.0 MIT
 </footer>
 </body>
 </html>
