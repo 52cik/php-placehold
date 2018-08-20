@@ -41,6 +41,13 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . index.php
 ```
 
+### with docker
+
+```sh
+$ docker build -t php-placehold .
+$ docker run -d -p 8000:8000 -h php-placehold --name php-placehold --restart=always php-placehold
+```
+
 
 ## Examples
 
