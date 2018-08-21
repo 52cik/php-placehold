@@ -1,0 +1,10 @@
+web:
+  image: php-placehold:latest
+  restart: always
+  container_name: placehold
+  ports:
+    - 8000:8000
+
+# docker build -t php-placehold . # 创建镜像
+# docker-compose up -d # 启动/重启
+# docker-compose down  # 关闭并删除
